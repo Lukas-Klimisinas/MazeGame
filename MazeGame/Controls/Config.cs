@@ -20,5 +20,9 @@ namespace MazeGame.Controls
         public static SoundPlayer Player = new SoundPlayer("..//../Content/Music_Compressed.wav");
 
         public static bool IsSoundMuted = false;
+
+        public static bool IsConnectedToInternet;
+
+        public static string UniqueToken;
     }
 }
