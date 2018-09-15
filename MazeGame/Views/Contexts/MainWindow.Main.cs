@@ -11,6 +11,7 @@ namespace MazeGame.Views
         public void InitMainContext()
         {
             Image QuitImg = Image.FromFile("..//../Content/QuitBtn.png");
+            Image Logo = Image.FromFile("..//../Content/Logo.png");
 
             Button Quit = new Button
             {
@@ -28,6 +29,14 @@ namespace MazeGame.Views
                 BackgroundImage = Config.MuteSound,
                 BackColor = Color.Transparent,
                 FlatStyle = FlatStyle.Flat
+            };
+
+            PictureBox PBLogo = new PictureBox
+            {
+                Location = new Point((MaxBounds.Width - Logo.Width) / 2, 150),
+                Size = new Size(Logo.Width, Logo.Height),
+                Image = Logo,
+                BackColor = Color.Transparent
             };
 
             MuteSound.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -52,10 +61,13 @@ namespace MazeGame.Views
 
             this.PanelMain.Controls.Add(Quit);
             this.PanelMain.Controls.Add(MuteSound);
+            this.PanelMain.Controls.Add(PBLogo);
 
             Quit = null;
             QuitImg = null;
             MuteSound = null;
+            PBLogo = null;
+            Logo = null;
         }
 
         public void SwitchToMainContext()
