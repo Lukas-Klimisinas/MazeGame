@@ -97,6 +97,7 @@
     <Content Include="Content\Background.png" />
     <Content Include="Content\Loading.gif" />
     <Content Include="Content\LoadingCrop.gif" />
+    <Content Include="Content\Logo.png" />
     <Content Include="Content\Music.mp3" />
     <Content Include="Content\Music_Compressed.wav" />
     <Content Include="Content\Mute.png" />
