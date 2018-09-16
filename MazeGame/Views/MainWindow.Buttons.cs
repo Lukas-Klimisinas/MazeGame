@@ -5,20 +5,6 @@ namespace MazeGame.Views
 {
     partial class MainWindow
     {
-        private void Button_MouseLeave(object sender, System.EventArgs e)
-        {
-            Button Btn = (Button)sender;
-
-            Btn.Cursor = Cursors.Default;
-        }
-
-        private void Button_MouseEnter(object sender, System.EventArgs e)
-        {
-            Button Btn = (Button)sender;
-
-            Btn.Cursor = Cursors.Hand;
-        }
-
         private void Quit_Click(object sender, System.EventArgs e)
         {
             Application.Exit();

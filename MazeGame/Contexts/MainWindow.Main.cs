@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using MazeGame.Controls;
+using MazeGame.Classes;
 
 namespace MazeGame.Views
 {
@@ -13,43 +14,25 @@ namespace MazeGame.Views
             Image QuitImg = Image.FromFile("..//../Content/QuitBtn.png");
             Image Logo = Image.FromFile("..//../Content/Logo.png");
 
-            Button Quit = new Button
-            {
-                Location = new Point(MaxBounds.Width - QuitImg.Width, MaxBounds.Height - QuitImg.Height),
-                Size = new Size(QuitImg.Width, QuitImg.Height),
-                BackgroundImage = QuitImg,
-                BackColor = Color.Transparent,
-                FlatStyle = FlatStyle.Flat  
-            };
+            CustomButton Quit = new CustomButton(QuitImg);
+            CustomButton MuteSound = new CustomButton(Config.MuteSound);
 
-            Button MuteSound = new Button
-            {
-                Location = new Point(0, MaxBounds.Height - Config.MuteSound.Height),
-                Size = new Size(Config.MuteSound.Width, Config.MuteSound.Height),
-                BackgroundImage = Config.MuteSound,
-                BackColor = Color.Transparent,
-                FlatStyle = FlatStyle.Flat
-            };
+            Config.LogoHeight = Logo.Height;
+            Config.MaxBounds = MaxBounds;
+
+            Quit.Location = new Point(MaxBounds.Width - QuitImg.Width, MaxBounds.Height - QuitImg.Height);
+            MuteSound.Location = new Point(0, MaxBounds.Height - Config.MuteSound.Height);
+
+            Quit.Click += Quit_Click;
+            MuteSound.Click += MuteSound_Click;
 
             PictureBox PBLogo = new PictureBox
             {
-                Location = new Point((MaxBounds.Width - Logo.Width) / 2, 150),
+                Location = new Point((MaxBounds.Width - Logo.Width) / 2, Config.LogoPositionY),
                 Size = new Size(Logo.Width, Logo.Height),
                 Image = Logo,
                 BackColor = Color.Transparent
             };
-
-            MuteSound.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            MuteSound.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            Quit.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            Quit.FlatAppearance.MouseOverBackColor = Color.Transparent;
-
-            Quit.MouseEnter += Button_MouseEnter;
-            Quit.MouseLeave += Button_MouseLeave;
-            MuteSound.MouseEnter += Button_MouseEnter;
-            MuteSound.MouseLeave += Button_MouseLeave;
-            Quit.Click += Quit_Click;
-            MuteSound.Click += MuteSound_Click;
 
             this.PanelMain = new Panel
             {
@@ -81,7 +64,7 @@ namespace MazeGame.Views
             this.Width = MaxBounds.Width;
             
             this.Controls.Add(this.PanelMain);
-            Config.Player.PlayLooping();
+            //Config.Player.PlayLooping();
 
             this.ResumeLayout(false);
         }

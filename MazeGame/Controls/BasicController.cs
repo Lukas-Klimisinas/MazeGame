@@ -2,6 +2,7 @@
 using System.Management;
 using System.Security.Cryptography;
 using System.Text;
+using MazeGame.Contexts;
 
 namespace MazeGame.Controls
 {
@@ -62,6 +63,30 @@ namespace MazeGame.Controls
                 }
                 return builder.ToString();
             }
+        }
+
+        public static void ConstructFont()
+        {
+            System.Drawing.Text.PrivateFontCollection PrivateFont = new System.Drawing.Text.PrivateFontCollection();
+            PrivateFont.AddFontFile("..//../Content/joystixFont.ttf");
+
+            Config.TextFont = new System.Drawing.Font(PrivateFont.Families[0], 18, System.Drawing.FontStyle.Bold);
+        }
+
+        public static string GetNameFromRegistry()
+        {
+            object Value  = Microsoft.Win32.Registry.GetValue(Config.keyName, "PlayerName", string.Empty);
+
+            if (Value == null)
+                return null;
+            else
+                return (string)Value;
+        }
+
+        public static void InitContexts()
+        {
+            Config.MainCtx = MainContext.Instance;
+            Config.NameCtx = NameContext.Instance;
         }
     }
 }

@@ -9,13 +9,13 @@ namespace MazeGame.Views
     {
         private const int CtxWidth = 350;
         private const int CtxHeight = 350;
-        private Font TextFont = new Font("Consolas", 18, FontStyle.Bold);
 
 		public void InitLoadingContext()
         {
-            Graphics G = this.CreateGraphics();
+            BasicController.ConstructFont();
+
             Image GIF = Image.FromFile("..//../Content/LoadingCrop.gif");
-            SizeF TextSize = G.MeasureString("LOADING", TextFont);
+            Size TextSize = TextRenderer.MeasureText("LOADING", Config.TextFont);
 
             PictureBox Spinner = new PictureBox
             {
@@ -27,10 +27,10 @@ namespace MazeGame.Views
             Label Loading = new Label
             {
 				Text = "LOADING",
-				Font = TextFont,
-				ForeColor = Color.White,
-				Location = new Point((CtxWidth - (int)Math.Ceiling(TextSize.Width)) / 2 , Spinner.Location.Y + GIF.Height + 20),
-				Size = new Size((int)Math.Ceiling(TextSize.Width), (int)Math.Ceiling(TextSize.Height))
+				Font = Config.TextFont,
+				ForeColor = Color.Purple,
+				Location = new Point((CtxWidth - TextSize.Width) / 2 , Spinner.Location.Y + GIF.Height + 20),
+				Size = new Size(TextSize.Width, TextSize.Height)
             };
 
             this.PanelLoading = new Panel
@@ -46,7 +46,6 @@ namespace MazeGame.Views
             Spinner = null;
             Loading = null;
             GIF = null;
-            G.Dispose();
         }
 
 		public void SwitchToLoadingContext()

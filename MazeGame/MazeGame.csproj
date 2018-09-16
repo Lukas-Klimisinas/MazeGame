@@ -47,10 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\BasicController.cs" />
     <Compile Include="Controls\Config.cs" />
-    <Compile Include="Views\Contexts\MainWindow.Main.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Contexts\LoadingContext.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contexts\MainContext.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contexts\NameContext.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\MainWindow.Buttons.cs">
       <SubType>Form</SubType>
@@ -78,6 +87,7 @@
     <EmbeddedResource Include="Views\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Content\joystixFont.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -86,9 +96,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Views\Contexts\MainWindow.Loading.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -38,31 +38,16 @@ namespace MazeGame.Views
             this.BackgroundWorker_LoadGame.DoWork += BackgroundWorker_LoadGame_DoWork;
             this.BackgroundWorker_LoadGame.RunWorkerCompleted += BackgroundWorker_LoadGame_RunWorkerCompleted;
 
-            this.SuspendLayout();
-
             // 
             // MainWindow
             // 
-
-            InitLoadingContext();
 
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.BackgroundImage = Image.FromFile("..//../Content/Background.png");
             this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Normal;
-
-            SwitchToLoadingContext();
-
-            this.ResumeLayout(false);
+            this.WindowState = FormWindowState.Normal;           
         }
-
-        #endregion
-
-        #region Contexts
-
-        private Panel PanelLoading;
-        private Panel PanelMain;
 
         #endregion
 
