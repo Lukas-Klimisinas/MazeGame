@@ -41,7 +41,7 @@ namespace MazeGame.Views
             Config.UniqueToken = BasicController.GenerateUniqueToken();
             Config.PlayerName = BasicController.GetNameFromRegistry();
 
-            if(Config.PlayerName == null)
+            if(Config.PlayerName == null || string.IsNullOrWhiteSpace(Config.PlayerName))
             {
                 Config.InsertNameContext = true;
             }        

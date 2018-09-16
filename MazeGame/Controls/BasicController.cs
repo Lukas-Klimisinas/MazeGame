@@ -3,6 +3,8 @@ using System.Management;
 using System.Security.Cryptography;
 using System.Text;
 using MazeGame.Contexts;
+using Microsoft.Win32;
+using System;
 
 namespace MazeGame.Controls
 {
@@ -75,18 +77,35 @@ namespace MazeGame.Controls
 
         public static string GetNameFromRegistry()
         {
-            object Value  = Microsoft.Win32.Registry.GetValue(Config.keyName, "PlayerName", string.Empty);
+            object Value  = Registry.GetValue(Config.keyName, "PlayerName", string.Empty);
 
             if (Value == null)
+            {
+                Registry.CurrentUser.CreateSubKey(Config.subkey);
                 return null;
+            }
             else
                 return (string)Value;
+        }
+
+        public static bool SetNameToRegistry(string Name)
+        {
+            try
+            {
+                Registry.SetValue(Config.keyName, "PlayerName", Name);
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public static void InitContexts()
         {
             Config.MainCtx = MainContext.Instance;
-            Config.NameCtx = NameContext.Instance;
+            Config.NameCtx = EnterNameContext.Instance;
         }
     }
 }

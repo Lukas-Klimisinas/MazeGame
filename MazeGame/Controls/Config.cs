@@ -47,7 +47,7 @@ namespace MazeGame.Controls
         #region Contexts
 
         public static MainContext MainCtx;
-        public static NameContext NameCtx;
+        public static EnterNameContext NameCtx;
 
         #endregion
     }

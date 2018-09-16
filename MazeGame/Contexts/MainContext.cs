@@ -78,7 +78,7 @@ namespace MazeGame.Contexts
             Main.Width = Config.MaxBounds.Width;
 
             Main.Controls.Add(this);
-            Config.Player.PlayLooping();
+            //Config.Player.PlayLooping();
 
             this.ResumeLayout(false);
         }

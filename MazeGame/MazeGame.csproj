@@ -58,7 +58,7 @@
     <Compile Include="Contexts\MainContext.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Contexts\NameContext.cs">
+    <Compile Include="Contexts\EnterNameContext.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\MainWindow.Buttons.cs">
@@ -112,6 +112,7 @@
     <Content Include="Content\Mute.png" />
     <Content Include="Content\Muted.png" />
     <Content Include="Content\QuitBtn.png" />
+    <Content Include="Content\StartBtn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
